@@ -5,7 +5,11 @@
       <p class="has-text-centered">{{ challenge }}</p>
 
       <div class="field">
-        <input class="input" type="text" />
+        <input
+          class="input"
+          type="text"
+          (input)="onTyping($event.target.value)"
+        />
       </div>
 
       <div *ngIf="successMsg" class="box has-text-centered">
