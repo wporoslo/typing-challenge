@@ -11,7 +11,14 @@ export class AppComponent {
   timer: number = 0
   userInput: string = ''
 
-  onTyping(value: string): void {
+  onInput(value: string): void {
     this.userInput = value
+  }
+
+  evaluateInput(letter: string, userInput: string): string {
+    if (!userInput) {
+      return 'pending'
+    }
+    return letter === userInput ? 'success' : 'error'
   }
 }
