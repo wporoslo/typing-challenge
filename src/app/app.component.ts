@@ -14,7 +14,7 @@ export class AppComponent {
 
   //timer may need some additional work to accurately represent time
 
-  updateTimer(): void {
+  updateTimer = (): void => {
     this.timer = this.timer + 1
   }
 

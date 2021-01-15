@@ -4,6 +4,7 @@
 
 .success {
   color: green;
+  font-weight: bold;
 }
 
 .error {

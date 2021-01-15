@@ -1,8 +1,11 @@
-<div class="container">
+<div class="container mt-5">
   <div class="columns is-centered">
-    <div class="box column is-one-third">
+    <div class="box column is-half">
       <h1 class="title has-text-centered">Typing challange</h1>
-      <p class="has-text-centered">
+      <p class="has-text-centered is-size-6">
+        Rewrite the sentence below into the input area.
+      </p>
+      <p class="mt-5 mb-3">
         <span
           *ngFor="let letter of challenge.split(''); let i = index"
           [class]="evaluateInput(letter, userInput[i])"
@@ -21,7 +24,10 @@
 
       <div *ngIf="userInput === challenge" class="box has-text-centered">
         <h1 class="title">You won in {{ getTime() }} seconds!</h1>
-        <button class="is-centered" (click)="getNewChallenge()">
+        <button
+          class="button is-primary is-centered"
+          (click)="getNewChallenge()"
+        >
           New challenge
         </button>
       </div>
