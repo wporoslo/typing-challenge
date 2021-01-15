@@ -1,7 +1,7 @@
 <div class="container">
   <div class="columns is-centered">
     <div class="box column is-one-third">
-      <h1 class="title has-text-centered">{{ title }}</h1>
+      <h1 class="title has-text-centered">Typing challange</h1>
       <p class="has-text-centered">{{ challenge }}</p>
 
       <div class="field">
@@ -13,7 +13,7 @@
       </div>
 
       <div *ngIf="userInput === challenge" class="box has-text-centered">
-        <h1 class="title">{{ successMsg }}</h1>
+        <h1 class="title">You won!</h1>
       </div>
     </div>
   </div>

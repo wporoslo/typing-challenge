@@ -7,14 +7,11 @@ import {lorem} from 'faker'
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title: string = 'Typing challange'
   challenge: string = lorem.sentence()
-  successMsg: string = 'You won!'
   timer: number = 0
   userInput: string = ''
 
   onTyping(value: string): void {
-    console.log(value)
     this.userInput = value
   }
 }
