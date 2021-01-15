@@ -10,9 +10,29 @@ export class AppComponent {
   challenge: string = lorem.sentence()
   timer: number = 0
   userInput: string = ''
+  intervalId: NodeJS.Timeout
+
+  //timer may need some additional work to accurately represent time
+
+  updateTimer = () => {
+    this.timer = this.timer + 1
+  }
+
+  startTimer() {
+    if (!this.userInput) {
+      clearInterval(this.intervalId)
+      this.timer = 0
+      return
+    }
+    if (this.timer > 0) {
+      return
+    }
+    this.intervalId = setInterval(this.updateTimer, 100)
+  }
 
   onInput(value: string): void {
     this.userInput = value
+    this.startTimer()
   }
 
   evaluateInput(letter: string, userInput: string): string {
@@ -20,5 +40,10 @@ export class AppComponent {
       return 'pending'
     }
     return letter === userInput ? 'success' : 'error'
+  }
+
+  getTime(): number {
+    clearInterval(this.intervalId)
+    return this.timer / 10
   }
 }
