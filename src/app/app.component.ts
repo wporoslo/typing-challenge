@@ -11,8 +11,10 @@ export class AppComponent {
   challenge: string = lorem.sentence()
   successMsg: string = 'You won!'
   timer: number = 0
+  userInput: string = ''
 
   onTyping(value: string): void {
     console.log(value)
+    this.userInput = value
   }
 }
