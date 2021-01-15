@@ -49,6 +49,7 @@ export class AppComponent {
 
   getNewChallenge(): void {
     this.userInput = ''
+    this.timer = 0
     this.challenge = lorem.sentence()
   }
 }
