@@ -15,11 +15,15 @@
           class="input"
           type="text"
           (input)="onInput($event.target.value)"
+          [value]="userInput"
         />
       </div>
 
       <div *ngIf="userInput === challenge" class="box has-text-centered">
         <h1 class="title">You won in {{ getTime() }} seconds!</h1>
+        <button class="is-centered" (click)="getNewChallenge()">
+          New challenge
+        </button>
       </div>
     </div>
   </div>

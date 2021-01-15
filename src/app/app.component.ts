@@ -14,11 +14,11 @@ export class AppComponent {
 
   //timer may need some additional work to accurately represent time
 
-  updateTimer = () => {
+  updateTimer(): void {
     this.timer = this.timer + 1
   }
 
-  startTimer() {
+  startTimer(): void {
     if (!this.userInput) {
       clearInterval(this.intervalId)
       this.timer = 0
@@ -45,5 +45,10 @@ export class AppComponent {
   getTime(): number {
     clearInterval(this.intervalId)
     return this.timer / 10
+  }
+
+  getNewChallenge(): void {
+    this.userInput = ''
+    this.challenge = lorem.sentence()
   }
 }
