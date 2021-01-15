@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {HostListener, Component} from '@angular/core'
 import {lorem} from 'faker'
 
 @Component({
@@ -10,8 +10,12 @@ export class AppComponent {
   challenge: string = lorem.sentence()
   timer: number = 0
   userInput: string = ''
+  show: boolean = false
   intervalId: NodeJS.Timeout
-
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    this.onKeydown(event)
+  }
   //timer may need some additional work to accurately represent time
 
   updateTimer = (): void => {
@@ -48,8 +52,22 @@ export class AppComponent {
   }
 
   getNewChallenge(): void {
+    clearInterval(this.intervalId)
     this.userInput = ''
     this.timer = 0
     this.challenge = lorem.sentence()
+  }
+
+  onKeydown(value: {key: string; ctrlKey?: boolean}): void {
+    if (
+      value.key === 'Enter' &&
+      (this.challenge === this.userInput || value.ctrlKey)
+    ) {
+      this.getNewChallenge()
+    }
+  }
+
+  showPopup(): void {
+    this.show = true
   }
 }

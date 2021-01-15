@@ -1,7 +1,18 @@
 <div class="container mt-5">
   <div class="columns is-centered">
-    <div class="box column is-half">
-      <h1 class="title has-text-centered">Typing challenge</h1>
+    <div class="box column is-half is-relative">
+      <h1 class="column title has-text-centered">Typing challenge</h1>
+      <div
+        class="is-clickable"
+        (click)="getNewChallenge()"
+        (mouseover)="showPopup()"
+      >
+        <img src="assets/refresh.svg" class="box refresh" />
+        <div *ngIf="show" class="box popup">
+          Press CTRL + Enter to get a new challenge
+        </div>
+      </div>
+
       <p class="has-text-centered is-size-6">
         Rewrite the sentence below into the input area.
       </p>
@@ -18,6 +29,7 @@
           class="input"
           type="text"
           (input)="onInput($event.target.value)"
+          (keydown)="onKeydown($event)"
           [value]="userInput"
           spellcheck="false"
         />
@@ -26,11 +38,12 @@
       <div *ngIf="userInput === challenge" class="box has-text-centered">
         <h1 class="title">You won in {{ getTime() }} seconds!</h1>
         <button
-          class="button is-primary is-centered"
+          class="button is-primary is-centered mb-5"
           (click)="getNewChallenge()"
         >
           New challenge
         </button>
+        <p class="has-text-centered">or click Enter to get a new challenge</p>
       </div>
     </div>
   </div>

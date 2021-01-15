@@ -11,3 +11,26 @@
   color: hsl(348, 100%, 61%);
   font-weight: bold;
 }
+
+.refresh {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.refresh:hover {
+  transform: scale(1.1);
+}
+
+.refresh:hover ~ .popup {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
